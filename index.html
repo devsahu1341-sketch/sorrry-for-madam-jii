@@ -23,6 +23,8 @@ justify-content:center;
 align-items:center;
 }
 
+/* Screens */
+
 .screen{
 position:absolute;
 width:100%;
@@ -31,11 +33,14 @@ display:none;
 justify-content:center;
 align-items:center;
 padding:20px;
+overflow:hidden;
 }
 
 .active{
 display:flex;
 }
+
+/* Card */
 
 .card{
 width:90%;
@@ -48,7 +53,53 @@ text-align:center;
 box-shadow:0 0 25px rgba(255,255,255,0.5);
 overflow-y:auto;
 max-height:90vh;
+position:relative;
+z-index:2;
+animation:fadeIn 1s ease;
 }
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:scale(0.9);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+/* Ribbon */
+
+.ribbon{
+position:absolute;
+width:140px;
+opacity:0.8;
+z-index:1;
+animation:floatRibbon 5s ease-in-out infinite alternate;
+}
+
+.ribbon1{
+top:-20px;
+left:-20px;
+}
+
+.ribbon2{
+bottom:-20px;
+right:-20px;
+transform:rotate(180deg);
+}
+
+@keyframes floatRibbon{
+from{
+transform:translateY(0px);
+}
+to{
+transform:translateY(10px);
+}
+}
+
+/* Text */
 
 h1{
 font-size:2.4rem;
@@ -67,6 +118,8 @@ line-height:1.7;
 color:black;
 }
 
+/* Buttons */
+
 button{
 padding:14px 28px;
 border:none;
@@ -76,10 +129,28 @@ cursor:pointer;
 margin:10px;
 font-weight:bold;
 transition:0.3s;
+position:relative;
+overflow:hidden;
 }
 
 button:hover{
 transform:scale(1.08);
+}
+
+button::after{
+content:"✨";
+position:absolute;
+right:-20px;
+top:-10px;
+font-size:22px;
+opacity:0;
+transition:0.4s;
+}
+
+button:hover::after{
+right:15px;
+top:8px;
+opacity:1;
 }
 
 .yes{
@@ -93,6 +164,8 @@ background:white;
 color:#ff007f;
 }
 
+/* Letter */
+
 .letter{
 text-align:left;
 color:black;
@@ -100,7 +173,22 @@ line-height:1.9;
 white-space:pre-line;
 font-size:1rem;
 margin-top:20px;
+animation:unfold 1s ease;
+transform-origin:top;
 }
+
+@keyframes unfold{
+0%{
+transform:scaleY(0);
+opacity:0;
+}
+100%{
+transform:scaleY(1);
+opacity:1;
+}
+}
+
+/* Floating */
 
 .float{
 position:absolute;
@@ -128,6 +216,38 @@ opacity:0;
 
 }
 
+/* Floating text */
+
+.floatText{
+position:absolute;
+color:#ff007f;
+font-weight:bold;
+font-size:1rem;
+animation:floatText 10s linear infinite;
+opacity:0.7;
+pointer-events:none;
+}
+
+@keyframes floatText{
+
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+
+}
+
+/* Celebration */
+
 .loveText{
 font-size:1.5rem;
 color:#ff007f;
@@ -144,11 +264,29 @@ animation:pulse 1s infinite;
 
 }
 
+/* Kiss Zoom */
+
 .kiss{
 font-size:2rem;
 margin-top:20px;
 color:#ff007f;
-animation:pulse 1s infinite;
+animation:kissZoom 1s infinite;
+}
+
+@keyframes kissZoom{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.25);
+}
+
+100%{
+transform:scale(1);
+}
+
 }
 
 </style>
@@ -156,9 +294,12 @@ animation:pulse 1s infinite;
 
 <body>
 
-<!-- SCREEN 1 -->
+<!-- HOME -->
 
 <div class="screen active" id="home">
+
+<img src="https://cdn-icons-png.flaticon.com/512/2589/2589175.png" class="ribbon ribbon1">
+<img src="https://cdn-icons-png.flaticon.com/512/2589/2589175.png" class="ribbon ribbon2">
 
 <div class="card">
 
@@ -174,9 +315,12 @@ animation:pulse 1s infinite;
 
 </div>
 
-<!-- SCREEN 2 LETTER -->
+<!-- LETTER -->
 
 <div class="screen" id="letterScreen">
+
+<img src="https://cdn-icons-png.flaticon.com/512/2589/2589175.png" class="ribbon ribbon1">
+<img src="https://cdn-icons-png.flaticon.com/512/2589/2589175.png" class="ribbon ribbon2">
 
 <div class="card">
 
@@ -227,9 +371,12 @@ Aapka pyaaaraaa pati jiii🙇❤️🫂😘😘😘
 
 </div>
 
-<!-- SCREEN 3 CELEBRATION -->
+<!-- CELEBRATION -->
 
 <div class="screen" id="celebrationScreen">
+
+<img src="https://cdn-icons-png.flaticon.com/512/2589/2589175.png" class="ribbon ribbon1">
+<img src="https://cdn-icons-png.flaticon.com/512/2589/2589175.png" class="ribbon ribbon2">
 
 <div class="card">
 
@@ -287,6 +434,8 @@ hideAll();
 
 document.getElementById("letterScreen").classList.add("active");
 
+startFlowers();
+
 }
 
 function openCelebration(){
@@ -295,7 +444,7 @@ hideAll();
 
 document.getElementById("celebrationScreen").classList.add("active");
 
-startFloating();
+startCelebration();
 
 }
 
@@ -305,7 +454,45 @@ document.getElementById("kissBox").style.display="block";
 
 }
 
-function startFloating(){
+function startFlowers(){
+
+for(let i=0;i<40;i++){
+
+let flower=document.createElement("div");
+
+flower.classList.add("float");
+
+flower.innerHTML="🌸";
+
+flower.style.left=Math.random()*100+"vw";
+
+flower.style.fontSize=(20+Math.random()*20)+"px";
+
+flower.style.animationDuration=(5+Math.random()*5)+"s";
+
+document.body.appendChild(flower);
+
+}
+
+for(let i=0;i<15;i++){
+
+let text=document.createElement("div");
+
+text.classList.add("floatText");
+
+text.innerHTML="Madam jiii pls maaf kardo 😭❤️";
+
+text.style.left=Math.random()*90+"vw";
+
+text.style.animationDuration=(8+Math.random()*5)+"s";
+
+document.body.appendChild(text);
+
+}
+
+}
+
+function startCelebration(){
 
 for(let i=0;i<80;i++){
 
