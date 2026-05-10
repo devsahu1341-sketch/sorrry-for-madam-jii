@@ -6,6 +6,7 @@
 <title>Sorry Madam Jiii ❤️</title>
 
 <style>
+
 *{
 margin:0;
 padding:0;
@@ -14,66 +15,77 @@ font-family:'Segoe UI',sans-serif;
 }
 
 body{
-background:linear-gradient(135deg,#ffb6d9,#ffd6ec,#ffe6f7);
+background:linear-gradient(135deg,#ffc1da,#ffd9ec,#ffeef7);
 overflow:hidden;
 height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-color:white;
 }
 
-.container{
+.screen{
+position:absolute;
+width:100%;
+height:100%;
+display:none;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.active{
+display:flex;
+}
+
+.card{
 width:90%;
 max-width:700px;
-background:rgba(255,255,255,0.15);
+background:rgba(255,255,255,0.35);
 backdrop-filter:blur(12px);
-padding:30px;
 border-radius:30px;
+padding:30px;
 text-align:center;
-box-shadow:0 0 30px rgba(255,255,255,0.3);
-position:relative;
-z-index:2;
-animation:fadeIn 1.5s ease;
+box-shadow:0 0 25px rgba(255,255,255,0.5);
 overflow-y:auto;
 max-height:90vh;
 }
 
 h1{
-font-size:2.5rem;
-margin-bottom:10px;
+font-size:2.4rem;
 color:#ff007f;
-text-shadow:0 0 10px white;
+margin-bottom:15px;
 }
 
 h2{
-font-size:1.7rem;
+color:#ff007f;
 margin-bottom:20px;
-color:#ff3c9e;
 }
 
 p{
 font-size:1.1rem;
-line-height:1.8;
-color:#fff;
+line-height:1.7;
+color:black;
 }
 
 button{
-margin-top:20px;
 padding:14px 28px;
 border:none;
 border-radius:40px;
 font-size:1rem;
 cursor:pointer;
-transition:0.3s;
+margin:10px;
 font-weight:bold;
-margin-right:10px;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.08);
 }
 
 .yes{
 background:#ff007f;
 color:white;
-box-shadow:0 0 20px #ff007f;
+box-shadow:0 0 15px #ff007f;
 }
 
 .no{
@@ -81,87 +93,94 @@ background:white;
 color:#ff007f;
 }
 
-button:hover{
-transform:scale(1.08);
-}
-
-.hidden{
-display:none;
+.letter{
+text-align:left;
+color:black;
+line-height:1.9;
+white-space:pre-line;
+font-size:1rem;
+margin-top:20px;
 }
 
 .float{
 position:absolute;
 font-size:28px;
-animation:float 8s linear infinite;
+animation:float 7s linear infinite;
 opacity:0.8;
+pointer-events:none;
 }
 
 @keyframes float{
+
 0%{
 transform:translateY(100vh) rotate(0deg);
 opacity:0;
 }
+
 20%{
 opacity:1;
 }
+
 100%{
 transform:translateY(-120vh) rotate(360deg);
 opacity:0;
 }
+
 }
 
-@keyframes fadeIn{
-from{
-opacity:0;
-transform:scale(0.8);
-}
-to{
-opacity:1;
-transform:scale(1);
-}
-}
-
-.love{
+.loveText{
 font-size:1.5rem;
-margin-top:20px;
 color:#ff007f;
 font-weight:bold;
+line-height:2;
 animation:pulse 1s infinite;
 }
 
 @keyframes pulse{
-0%{transform:scale(1);}
-50%{transform:scale(1.1);}
-100%{transform:scale(1);}
-}
 
-.letter{
-text-align:left;
-margin-top:20px;
-white-space:pre-line;
-font-size:1rem;
+0%{transform:scale(1);}
+50%{transform:scale(1.05);}
+100%{transform:scale(1);}
+
 }
 
 .kiss{
 font-size:2rem;
 margin-top:20px;
-animation:pulse 1s infinite;
 color:#ff007f;
+animation:pulse 1s infinite;
 }
+
 </style>
 </head>
 
 <body>
 
-<div class="container" id="main">
+<!-- SCREEN 1 -->
+
+<div class="screen active" id="home">
+
+<div class="card">
 
 <h1>💖 I LOVEEE YOUUU MERIII PYAARI MADAM JIII 💖</h1>
-<h2>🥹❤️ Sorryyyy Madam Jiii 😭❤️</h2>
 
-<button class="yes" onclick="forgive()">💖 Maaf Kardiya 💖</button>
-<button class="no" onclick="showLetter()">😾 Maaf Nahi Kiya</button>
+<h2>🥹❤️ Sorrryyyy Madam Jiii 😭❤️</h2>
 
-<div id="letterBox" class="hidden">
+<button class="yes" onclick="openCelebration()">💖 Maaf Kardiya 💖</button>
+
+<button class="no" onclick="openLetter()">😾 Maaf Nahi Kiya</button>
+
+</div>
+
+</div>
+
+<!-- SCREEN 2 LETTER -->
+
+<div class="screen" id="letterScreen">
+
+<div class="card">
+
+<h1>💌 Ek Chotu Saa Letter 💌</h1>
 
 <div class="letter">
 
@@ -202,26 +221,50 @@ Aapka pyaaaraaa pati jiii🙇❤️🫂😘😘😘
 
 </div>
 
-<button class="yes" onclick="forgive()">🥹 Ab Maaf Kardiya ❤️</button>
+<button class="yes" onclick="openCelebration()">🥹 Ab Maaf Kardiya ❤️</button>
 
 </div>
 
-<div id="celebration" class="hidden">
+</div>
 
-<div class="love">
-❤️ Love You Meri Rasmalai ❤️<br>
-😘 Love You Meri Patni Ji 😘<br>
-🥹 Love You Meri Kajukatli 🥹<br>
-🤗 Love You Meri Gudiya Raani 🤗<br>
-🫂 Love You Meri Jaan 🫂<br>
+<!-- SCREEN 3 CELEBRATION -->
+
+<div class="screen" id="celebrationScreen">
+
+<div class="card">
+
+<h1>🎉 YAYYYYYYY 😭❤️🎉</h1>
+
+<div class="loveText">
+
+❤️ Love You Meri Rasmalai ❤️<br><br>
+
+😘 Love You Meri Patni Ji 😘<br><br>
+
+🥹 Love You Meri Kajukatli 🥹<br><br>
+
+🤗 Love You Meri Gudiya Raani 🤗<br><br>
+
+🫂 Love You Meri Jaan 🫂<br><br>
+
 🥰 Love You Meri Universe 🥰
+
 </div>
 
-<button class="yes" onclick="kissMe()">😘 Come Here And Kiss Me 😘</button>
+<button class="yes" onclick="showKiss()">😘 Come Here And Kiss Me 😘</button>
 
-<div id="kissText" class="hidden kiss">
-UMAAAAAAAAAAAAAAAAAAAA 😘😘😘❤️❤️❤️<br>
+<div id="kissBox" style="display:none;">
+
+<div class="kiss">
+
+UMAAAAAAAAAAAAAAAAAAAA 😘😘😘❤️❤️❤️
+
+<br><br>
+
 I LOVEEE YOUUU MERIII PYAARI PATNI JIII 🥹❤️🫂
+
+</div>
+
 </div>
 
 </div>
@@ -230,36 +273,60 @@ I LOVEEE YOUUU MERIII PYAARI PATNI JIII 🥹❤️🫂
 
 <script>
 
-function showLetter(){
-document.getElementById("letterBox").classList.remove("hidden");
+function hideAll(){
+
+document.querySelectorAll(".screen").forEach(screen=>{
+screen.classList.remove("active");
+});
+
 }
 
-function forgive(){
-document.getElementById("celebration").classList.remove("hidden");
+function openLetter(){
+
+hideAll();
+
+document.getElementById("letterScreen").classList.add("active");
+
+}
+
+function openCelebration(){
+
+hideAll();
+
+document.getElementById("celebrationScreen").classList.add("active");
+
+startFloating();
+
+}
+
+function showKiss(){
+
+document.getElementById("kissBox").style.display="block";
+
+}
+
+function startFloating(){
 
 for(let i=0;i<80;i++){
 
-let float=document.createElement("div");
+let div=document.createElement("div");
 
-float.classList.add("float");
+div.classList.add("float");
 
-let emojis=["❤️","😘","🥹","🫂","🥰","💖","💫","👑"];
+let emojis=["❤️","😘","🥹","🫂","🥰","💖","👑","💫"];
 
-float.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+div.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
 
-float.style.left=Math.random()*100+"vw";
+div.style.left=Math.random()*100+"vw";
 
-float.style.animationDuration=(Math.random()*5+5)+"s";
+div.style.fontSize=(20+Math.random()*30)+"px";
 
-float.style.fontSize=(Math.random()*30+20)+"px";
+div.style.animationDuration=(5+Math.random()*5)+"s";
 
-document.body.appendChild(float);
+document.body.appendChild(div);
 
 }
-}
 
-function kissMe(){
-document.getElementById("kissText").classList.remove("hidden");
 }
 
 </script>
