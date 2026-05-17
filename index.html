@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sorry Madam Jiii ❤️</title>
+
+<title>Sorry Madam Ji ❤️</title>
 
 <style>
 
@@ -15,53 +16,36 @@ font-family:'Segoe UI',sans-serif;
 }
 
 body{
-background:linear-gradient(135deg,#ffc1da,#ffd9ec,#ffeef7);
 overflow:hidden;
 height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
+background:linear-gradient(135deg,#ff8fc7,#ffb6d9,#ffd6ea);
+color:white;
 }
 
-/* Screens */
+/* PAGES */
 
-.screen{
+.page{
 position:absolute;
 width:100%;
-height:100%;
+height:100vh;
 display:none;
 justify-content:center;
 align-items:center;
-padding:20px;
+flex-direction:column;
+padding:30px;
+text-align:center;
 overflow:hidden;
 }
 
 .active{
 display:flex;
+animation:fade 1s;
 }
 
-/* Card */
-
-.card{
-width:90%;
-max-width:700px;
-background:rgba(255,255,255,0.35);
-backdrop-filter:blur(12px);
-border-radius:30px;
-padding:30px;
-text-align:center;
-box-shadow:0 0 25px rgba(255,255,255,0.5);
-overflow-y:auto;
-max-height:90vh;
-position:relative;
-z-index:2;
-animation:fadeIn 1s ease;
-}
-
-@keyframes fadeIn{
+@keyframes fade{
 from{
 opacity:0;
-transform:scale(0.9);
+transform:scale(1.1);
 }
 to{
 opacity:1;
@@ -69,224 +53,180 @@ transform:scale(1);
 }
 }
 
-/* Ribbon */
-
-.ribbon{
-position:absolute;
-width:140px;
-opacity:0.8;
-z-index:1;
-animation:floatRibbon 5s ease-in-out infinite alternate;
-}
-
-.ribbon1{
-top:-20px;
-left:-20px;
-}
-
-.ribbon2{
-bottom:-20px;
-right:-20px;
-transform:rotate(180deg);
-}
-
-@keyframes floatRibbon{
-from{
-transform:translateY(0px);
-}
-to{
-transform:translateY(10px);
-}
-}
-
-/* Text */
+/* TEXT */
 
 h1{
-font-size:2.4rem;
-color:#ff007f;
-margin-bottom:15px;
-}
-
-h2{
-color:#ff007f;
+font-size:3rem;
 margin-bottom:20px;
+text-shadow:0 0 15px rgba(0,0,0,0.4);
 }
 
 p{
-font-size:1.1rem;
-line-height:1.7;
-color:black;
+font-size:1.3rem;
+line-height:2;
+max-width:900px;
+margin:10px auto;
+text-shadow:0 0 10px rgba(0,0,0,0.3);
 }
 
-/* Buttons */
+/* BUTTON */
 
 button{
-padding:14px 28px;
+padding:16px 35px;
 border:none;
-border-radius:40px;
-font-size:1rem;
-cursor:pointer;
-margin:10px;
+border-radius:50px;
+font-size:1.1rem;
 font-weight:bold;
-transition:0.3s;
-position:relative;
-overflow:hidden;
+cursor:pointer;
+margin-top:20px;
+background:white;
+color:#ff4081;
+transition:.3s;
+box-shadow:0 0 20px rgba(255,255,255,.6);
 }
 
 button:hover{
-transform:scale(1.08);
+transform:scale(1.1);
 }
 
-button::after{
-content:"✨";
-position:absolute;
-right:-20px;
-top:-10px;
-font-size:22px;
-opacity:0;
-transition:0.4s;
-}
-
-button:hover::after{
-right:15px;
-top:8px;
-opacity:1;
-}
-
-.yes{
-background:#ff007f;
-color:white;
-box-shadow:0 0 15px #ff007f;
-}
-
-.no{
-background:white;
-color:#ff007f;
-}
-
-/* Letter */
-
-.letter{
-text-align:left;
-color:black;
-line-height:1.9;
-white-space:pre-line;
-font-size:1rem;
-margin-top:20px;
-animation:unfold 1s ease;
-transform-origin:top;
-}
-
-@keyframes unfold{
-0%{
-transform:scaleY(0);
-opacity:0;
-}
-100%{
-transform:scaleY(1);
-opacity:1;
-}
-}
-
-/* Floating */
+/* FLOATING EMOJIS */
 
 .float{
 position:absolute;
-font-size:28px;
-animation:float 7s linear infinite;
-opacity:0.8;
+font-size:2rem;
 pointer-events:none;
+animation:float 10s linear infinite;
+opacity:.8;
 }
 
 @keyframes float{
-
 0%{
 transform:translateY(100vh) rotate(0deg);
 opacity:0;
 }
-
 20%{
 opacity:1;
 }
-
 100%{
 transform:translateY(-120vh) rotate(360deg);
 opacity:0;
 }
-
 }
 
-/* Floating text */
+/* RAIN */
 
-.floatText{
+.rain{
 position:absolute;
-color:#ff007f;
-font-weight:bold;
-font-size:1rem;
-animation:floatText 10s linear infinite;
-opacity:0.7;
-pointer-events:none;
+width:2px;
+height:100px;
+background:rgba(255,255,255,0.4);
+animation:rain 1s linear infinite;
 }
 
-@keyframes floatText{
-
+@keyframes rain{
 0%{
+transform:translateY(-100px);
+}
+100%{
 transform:translateY(100vh);
+}
+}
+
+/* CHAT */
+
+.chat{
+background:rgba(255,255,255,.15);
+padding:18px;
+margin:15px;
+border-radius:20px;
+backdrop-filter:blur(10px);
+width:350px;
+animation:slide 1s;
+}
+
+@keyframes slide{
+from{
+transform:translateX(-100px);
 opacity:0;
 }
-
-20%{
+to{
+transform:translateX(0);
 opacity:1;
 }
-
-100%{
-transform:translateY(-120vh);
-opacity:0;
 }
 
-}
+/* HEART */
 
-/* Celebration */
-
-.loveText{
-font-size:1.5rem;
-color:#ff007f;
-font-weight:bold;
-line-height:2;
+.heart{
+font-size:8rem;
 animation:pulse 1s infinite;
 }
 
 @keyframes pulse{
-
 0%{transform:scale(1);}
-50%{transform:scale(1.05);}
+50%{transform:scale(1.15);}
 100%{transform:scale(1);}
-
 }
 
-/* Kiss Zoom */
+/* LETTER */
 
-.kiss{
+.letter{
+background:rgba(0,0,0,.35);
+padding:40px;
+border-radius:30px;
+backdrop-filter:blur(12px);
+max-width:1000px;
+height:85vh;
+overflow:auto;
+box-shadow:0 0 40px rgba(0,0,0,.3);
+}
+
+.letter::-webkit-scrollbar{
+width:0;
+}
+
+/* POPUP */
+
+.popup{
+position:absolute;
 font-size:2rem;
-margin-top:20px;
-color:#ff007f;
-animation:kissZoom 1s infinite;
+font-weight:bold;
+animation:popup 3s linear forwards;
+pointer-events:none;
 }
 
-@keyframes kissZoom{
-
+@keyframes popup{
 0%{
-transform:scale(1);
+opacity:0;
+transform:translateY(100px) scale(.5);
 }
-
-50%{
-transform:scale(1.25);
+20%{
+opacity:1;
 }
-
 100%{
-transform:scale(1);
+opacity:0;
+transform:translateY(-500px) scale(1.5);
+}
 }
 
+.big{
+font-size:4rem;
+font-weight:bold;
+text-shadow:0 0 30px rgba(255,255,255,.9);
+}
+
+/* SHAKE */
+
+.shake{
+animation:shake .5s;
+}
+
+@keyframes shake{
+0%{transform:translateX(0);}
+25%{transform:translateX(-10px);}
+50%{transform:translateX(10px);}
+75%{transform:translateX(-10px);}
+100%{transform:translateX(0);}
 }
 
 </style>
@@ -294,227 +234,651 @@ transform:scale(1);
 
 <body>
 
-<!-- HOME -->
+<div id="emojiContainer"></div>
 
-<div class="screen active" id="home">
+<!-- PAGE 1 -->
 
-<img src="https://cdn-icons-png.flaticon.com/512/2589/2589175.png" class="ribbon ribbon1">
-<img src="https://cdn-icons-png.flaticon.com/512/2589/2589175.png" class="ribbon ribbon2">
+<section class="page active" id="page1">
 
-<div class="card">
+<h1>Raat ke 2:30 baje the… 😔❤️</h1>
 
-<h1>💖 I LOVEEE YOUUU MERIII PYAARI MADAM JIII 💖</h1>
+<p>
+aur sir ji bas madam ji ke baare me soch rahe the 🥹
+</p>
 
-<h2>🥹❤️ Sorrryyyy Madam Jiii 😭❤️</h2>
+<p>
+Neend bhi tab aati hai… jab dil shaant ho 😭
+</p>
 
-<button class="yes" onclick="openCelebration()">💖 Maaf Kardiya 💖</button>
+<button onclick="nextPage(2)">
+Fir kya hua? 🥺
+</button>
 
-<button class="no" onclick="openLetter()">😾 Maaf Nahi Kiya</button>
+</section>
 
+<!-- PAGE 2 -->
+
+<section class="page" id="page2">
+
+<h1>Unsent Messages 📱</h1>
+
+<div class="chat">
+gussa kam hua? 🥺 ❌ deleted
 </div>
 
+<div class="chat">
+sorry madam ji 😭 ❌ deleted
 </div>
 
-<!-- LETTER -->
+<div class="chat">
+bas ek baar baat kar lo 🫂❤️ ❌ deleted
+</div>
 
-<div class="screen" id="letterScreen">
+<div class="chat">
+I still love you ❤️<br>
+✅ sent successfully 🥹
+</div>
 
-<img src="https://cdn-icons-png.flaticon.com/512/2589/2589175.png" class="ribbon ribbon1">
-<img src="https://cdn-icons-png.flaticon.com/512/2589/2589175.png" class="ribbon ribbon2">
+<button onclick="nextPage(3)">
+Next ❤️
+</button>
 
-<div class="card">
+</section>
 
-<h1>💌 Ek Chotu Saa Letter 💌</h1>
+<!-- PAGE 3 -->
+
+<section class="page" id="page3">
+
+<h1>Overthinking Machine 🧠</h1>
+
+<div class="big">🧠</div>
+
+<button onclick="showText('System says: YES 😭❤️')">
+Kya madam ji abhi bhi pyaar karti hai?
+</button>
+
+<button onclick="showText('Madam ji still cares detected 🥹')">
+Kya unblock karna sign tha?
+</button>
+
+<button onclick="showText('Probability of maafi = 78% ❤️')">
+Kya sir ji overthink kar rahe hai?
+</button>
+
+<p id="answer"></p>
+
+<button onclick="nextPage(4)">
+Next ❤️
+</button>
+
+</section>
+
+<!-- PAGE 4 -->
+
+<section class="page" id="page4">
+
+<h1>Voice Memories 🎧</h1>
+
+<button onclick="memory('shut up sir ji 🙄❤️')">
+Play Memory 1
+</button>
+
+<button onclick="memory('jaa na 😭')">
+Play Memory 2
+</button>
+
+<button onclick="memory('pagal ho kya 🥺')">
+Play Memory 3
+</button>
+
+<p id="memoryText"></p>
+
+<button onclick="nextPage(5)">
+Next ❤️
+</button>
+
+</section>
+
+<!-- PAGE 5 -->
+
+<section class="page" id="page5">
+
+<h1>Heart Status ❤️</h1>
+
+<div class="heart" id="heart">
+💔
+</div>
+
+<p>
+Current condition of sir ji ka dil 😔
+</p>
+
+<input type="range" min="1" max="100" value="100"
+style="width:300px"
+oninput="breakHeart(this.value)">
+
+<button onclick="healHeart()">
+Heal Heart ❤️
+</button>
+
+<button onclick="nextPage(6)">
+Next ❤️
+</button>
+
+</section>
+
+<!-- PAGE 6 -->
+
+<section class="page" id="page6">
+
+<h1>Distance Page 🌍</h1>
+
+<div class="big">
+Kerala 🌴 ➝ Bhopal ❤️
+</div>
+
+<p>
+Distance sirf cities ka hai 🥺❤️<br>
+dil to abhi bhi wahi atka hai…
+</p>
+
+<button onclick="nextPage(7)">
+Next ❤️
+</button>
+
+</section>
+
+<!-- PAGE 7 -->
+
+<section class="page" id="page7">
+
+<h1>Angry Madam Ji Simulator 🧸</h1>
+
+<button onclick="angryMadam()">
+Press to see angry madam ji
+</button>
+
+<p id="angryText"></p>
+
+<button onclick="nextPage(8)">
+Next ❤️
+</button>
+
+</section>
+
+<!-- PAGE 8 -->
+
+<section class="page" id="page8">
+
+<h1>Rain Confession 🌧️</h1>
+
+<p>
+Kabhi kabhi na…<br>
+insaan gusse me wo bol deta hai<br>
+jo dil actually nahi chahta 😔❤️
+</p>
+
+<p>
+Isliye sir ji abhi bhi hope nahi chhod rahe 🥹
+</p>
+
+<button onclick="nextPage(9)">
+Final Page ❤️
+</button>
+
+</section>
+
+<!-- PAGE 9 -->
+
+<section class="page" id="page9">
+
+<h1>
+Pata nahi ending kya hogi 😔❤️
+</h1>
+
+<p>
+par story sir ji ki favourite hi rahegi…<br>
+kyuki usme madam ji hai 🥹🫂
+</p>
+
+<button onclick="celebration()">
+😌❤️ Maaf Kar Diya
+</button>
+
+<button onclick="showLetter()">
+😤 Nahi Kiya
+</button>
+
+</section>
+
+<!-- LETTER PAGE -->
+
+<section class="page" id="letterPage">
 
 <div class="letter">
 
-💌💌💌💌💌💌💌💌💌💌
+<h1>To, My Gussa Queen Madam Ji 🥺❤️</h1>
 
-𝐓𝐨 :-
-🌴👑 𝐌𝐲 𝐊𝐞𝐫𝐚𝐥𝐚 𝐐𝐮𝐞𝐞𝐧 👑🌴
-🥹❤️🫂😘🌍💫👸
+<p>
+Currently in Kerala 🌴<br>
+(apne sir ji se itna dur 😔)<br>
+but always in sir ji ke dil meee ❤️🫂
+</p>
 
-𝐅𝐫𝐨𝐦 :-
-🌆❤️ 𝐀𝐩𝐤𝐚 𝐃𝐞𝐞𝐰𝐚𝐧𝐚 𝐅𝐫𝐨𝐦 𝐁𝐡𝐨𝐩𝐚𝐥 😌❤️🙇🫂✨
+<p>
+Address : Madam Ji ke heart me 💌
+</p>
 
-𝐒𝐮𝐛 :-
-📄❤️ “𝐌𝐚𝐝𝐚𝐦 𝐉𝐢𝐢𝐢 𝐩𝐥𝐬𝐬 𝐚𝐩𝐧𝐞 𝐛𝐞𝐜𝐡𝐚𝐫𝐞 𝐩𝐚𝐭𝐢 𝐣𝐢𝐢 𝐤𝐨 𝐦𝐚𝐚𝐟 𝐤𝐚𝐫 𝐝𝐨” 🥹❤️🙇
+<p>
+Respected meri pyaari Shrisakhi 🥹❤️,
+</p>
 
-𝐑𝐞𝐬𝐩𝐞𝐜𝐭𝐞𝐝 𝐌𝐚𝐝𝐚𝐦 𝐉𝐢𝐢👸❤️,
+<p>
+Pata hai… kal raat se bas ek hi cheez baar baar dimag me chal rahi hai 😔❤️
+ki hum dono itni si baat me itna duur kaise ho gaye 😭❤️
+kyunki honestly… jitni bhi ladai hui ho humari, maine kabhi imagine bhi nahi kiya tha ki ek din meri madam ji itna hurt ho jaayegi 🥺🫂❤️
+</p>
 
-Savinay nivedan ye haiii kiii🥹🫂❤️😘
-Kal raat ko jo 6 missed calls huiii📱😭❤️
-Uske zimmedaar hamara loud cooler haiii😔🌪️
-Na ki aapka innocent pati jiii🥺🥹😘❤️❤️🙇
+<p>
+Aur sach bolu… aapka gussa dekh ke bhi mujhe bas yehi feel hota raha ki meri bhagyawaan andar se bohot dukhi hai 😔❤️
+shayad meri wajah se… aur ye sochke hi dil aur zyada heavy ho jaata hai 😭🙇‍♂️🫂
+</p>
 
-Hum apko ignore karne ka paap sapne me bhi nahi kar sakte😤❤️😭😭
-Aap to hamari golgappaa🥹❤️😘😘❤️😁
-Kajukatliii🍫❤️😘😘
-Universeee🌍❤️🥹
-Aur daily wali happiness ho🥹🫂❤️😘😘
+<p>
+Mujhe pata hai mai perfect nahi hu 🥺
+kabhi zyada bol deta hu, kabhi childish ho jaata hu, kabhi aapko samajhne ki jagah khud hi overreact kar deta hu 😭❤️
+par ek cheez kabhi jhooth nahi thi…
+mera aapke liye pyaar 🥹❤️🫂
+</p>
 
-Isliyeee kripyaaa apna cute sa gussa😾❤️🥹🥹🫂
-Thoda kam kariyeee🥹🫂😘😘😘😘
-Aur apne sir jiii ko ek pyaara sa reply dijiyeee😭❤️😭😭🫂
+<p>
+Aapko pata hai? 😔❤️
+Aapki aadat si ho gayi hai mujhe…
+aise wali aadat jo chhodne ka mann hi nahi karta 🥺🫂
+din me chahe kitni bhi ladai ho jaaye 😭❤️
+par raat ko dil fir bhi bas yehi chahta hai ki ek baar madam ji pyaar se “mere pyaare sir ji” bol de aur sab pehle jaisa ho jaaye 🥹❤️
+</p>
 
-Dhanyawaad🙏❤️😭😭
-sadev apki seva meee🥹🥹❤️🙇‍♂️
-Aapka pyaaaraaa pati jiii🙇❤️🫂😘😘😘
+<p>
+Aur pata nahi kyun…
+par mere dil me abhi bhi ek choti si hope hai 😔❤️
+ki meri gussa queen kuch bhi bole…
+andar se abhi bhi apne sir ji se pyaar karti hai 🥺🫂❤️
+aur ek din fir se haste haste bolegi — “mere pyaare sir ji” 😭❤️
+</p>
 
-💌💌💌💌💌💌💌💌💌💌
+<p>
+Mai aapse ye nahi bolunga ki hum kabhi ladenge hi nahi 🥺
+par itna zaroor bolunga…
+ki chahe kitni bhi ladai ho, sir ji har baar apni madam ji ko hi manayenge ❤️🙇‍♂️🫂
+</p>
+
+<p>
+Aur agar meri Shrisakhi phir se pyaar se baat kar le na…
+to ye aapki bohot badi kripaa hogi iss overthinking sir ji par 😭❤️🙇‍♂️
+</p>
+
+<p>
+Bas ek baar gussa thoda kam karke phir se baat kar lena 🥺🫂❤️
+</p>
+
+<p>
+Aapke msg ka intezaar rahega madam ji 😭❤️
+</p>
+
+<p>
+Aapke pyare sir ji 🫂🥹❤️
+</p>
+
+<h2>
+Ab to maaf kar hi diya hoga na...? 🥺❤️
+</h2>
+
+<button onclick="celebration()">
+❤️ Maaf Kar Diya
+</button>
 
 </div>
 
-<button class="yes" onclick="openCelebration()">🥹 Ab Maaf Kardiya ❤️</button>
-
-</div>
-
-</div>
+</section>
 
 <!-- CELEBRATION -->
 
-<div class="screen" id="celebrationScreen">
+<section class="page" id="celebratePage">
 
-<img src="https://cdn-icons-png.flaticon.com/512/2589/2589175.png" class="ribbon ribbon1">
-<img src="https://cdn-icons-png.flaticon.com/512/2589/2589175.png" class="ribbon ribbon2">
+<h1 class="big">
+YESSSSSSS 😭❤️
+</h1>
 
-<div class="card">
+<p>
+MERI MADAM JI MAAN GYIII 🫂❤️
+</p>
 
-<h1>🎉 YAYYYYYYY 😭❤️🎉</h1>
+<p>
+MISSION SUCCESS 😎❤️
+</p>
 
-<div class="loveText">
+<p>
+I LOVE YOU SO MUCHHH ❤️
+</p>
 
-❤️ Love You Meri Rasmalai ❤️<br><br>
+<button onclick="errorPage()">
+☠️ Chod Ke Jao
+</button>
 
-😘 Love You Meri Patni Ji 😘<br><br>
+<button onclick="neverLeave()">
+❤️ Kabhi Chod Ke Mat Jaana
+</button>
 
-🥹 Love You Meri Kajukatli 🥹<br><br>
+</section>
 
-🤗 Love You Meri Gudiya Raani 🤗<br><br>
+<!-- ERROR PAGE -->
 
-🫂 Love You Meri Jaan 🫂<br><br>
+<section class="page" id="errorPage">
 
-🥰 Love You Meri Universe 🥰
+<h1 class="big">
+ERROR 404 ☠️🔪
+</h1>
 
-</div>
+<p>
+MADAM JI CANNOT LEAVE SIR JI 😭❤️
+</p>
 
-<button class="yes" onclick="showKiss()">😘 Come Here And Kiss Me 😘</button>
+<button onclick="neverLeave()">
+❤️ Kabhi Chod Ke Mat Jaana
+</button>
 
-<div id="kissBox" style="display:none;">
+</section>
 
-<div class="kiss">
+<!-- NEVER LEAVE -->
 
-UMAAAAAAAAAAAAAAAAAAAA 😘😘😘❤️❤️❤️
+<section class="page" id="neverPage">
 
-<br><br>
+<h1>
+WISHHHH 😁❤️
+</h1>
 
-I LOVEEE YOUUU MERIII PYAARI PATNI JIII 🥹❤️🫂
+<p>
+SIR JI KABHI CHOD KE NAHI JAENGE 🫂❤️
+</p>
 
-</div>
+<button onclick="dontLeave()">
+🥺 Aap Bhi Sir Ji Ko Kabhi Chod Ke Nahi Jaogi
+</button>
 
-</div>
+<button onclick="leaveButton()">
+😤 Chod Ke Jaengiii
+</button>
 
-</div>
+</section>
 
-</div>
+<!-- FINAL -->
+
+<section class="page" id="finalPage">
+
+<h1>
+GOOD GIRLLLL 😎❤️
+</h1>
+
+<h1>
+MY GIRLLLL 🥹🫂❤️
+</h1>
+
+<button onclick="hugMe()">
+Come Here And Hug Meeee 🫂❤️
+</button>
+
+<div id="hugText"></div>
+
+<button onclick="kissMe()">
+Kissi Ye 😘❤️
+</button>
+
+<div id="kissText"></div>
+
+</section>
 
 <script>
 
-function hideAll(){
+function nextPage(num){
 
-document.querySelectorAll(".screen").forEach(screen=>{
-screen.classList.remove("active");
+document.querySelectorAll('.page').forEach(p=>{
+p.classList.remove('active');
 });
 
-}
-
-function openLetter(){
-
-hideAll();
-
-document.getElementById("letterScreen").classList.add("active");
-
-startFlowers();
+document.getElementById('page'+num).classList.add('active');
 
 }
 
-function openCelebration(){
+function showText(text){
+document.getElementById('answer').innerHTML=text;
+}
 
-hideAll();
+function memory(text){
+document.getElementById('memoryText').innerHTML=text;
+}
 
-document.getElementById("celebrationScreen").classList.add("active");
+function breakHeart(v){
 
-startCelebration();
+if(v>50){
+document.getElementById('heart').innerHTML='💔';
+}else{
+document.getElementById('heart').innerHTML='❤️';
+}
 
 }
 
-function showKiss(){
+function healHeart(){
 
-document.getElementById("kissBox").style.display="block";
+document.getElementById('heart').innerHTML='❤️';
+
+popup('Heart repaired 🥹❤️');
 
 }
 
-function startFlowers(){
+let angry=[
+'msg mat karo 😤',
+'jaaao 😭',
+'baat nahi karni 🙄',
+'sir ji irritating hai 😔',
+'but still cares ❤️'
+];
+
+let angryIndex=0;
+
+function angryMadam(){
+
+document.getElementById('angryText').innerHTML=
+angry[angryIndex];
+
+angryIndex++;
+
+if(angryIndex>=angry.length){
+angryIndex=0;
+}
+
+}
+
+function showLetter(){
+
+document.querySelectorAll('.page').forEach(p=>{
+p.classList.remove('active');
+});
+
+document.getElementById('letterPage').classList.add('active');
+
+}
+
+function celebration(){
+
+document.querySelectorAll('.page').forEach(p=>{
+p.classList.remove('active');
+});
+
+document.getElementById('celebratePage').classList.add('active');
+
+let msgs=[
+'YESSSSS 😭❤️',
+'MERI MADAM JI MAAN GYIII 🫂',
+'MISSION SUCCESS 😎❤️',
+'I LOVE YOU ❤️',
+'MERI GUDIYA RANI 🥹',
+'FOREVER MY MADAM JI ❤️'
+];
 
 for(let i=0;i<40;i++){
 
-let flower=document.createElement("div");
+setTimeout(()=>{
 
-flower.classList.add("float");
+popup(msgs[Math.floor(Math.random()*msgs.length)]);
 
-flower.innerHTML="🌸";
-
-flower.style.left=Math.random()*100+"vw";
-
-flower.style.fontSize=(20+Math.random()*20)+"px";
-
-flower.style.animationDuration=(5+Math.random()*5)+"s";
-
-document.body.appendChild(flower);
-
-}
-
-for(let i=0;i<15;i++){
-
-let text=document.createElement("div");
-
-text.classList.add("floatText");
-
-text.innerHTML="Madam jiii pls maaf kardo 😭❤️";
-
-text.style.left=Math.random()*90+"vw";
-
-text.style.animationDuration=(8+Math.random()*5)+"s";
-
-document.body.appendChild(text);
+},i*200);
 
 }
 
 }
 
-function startCelebration(){
+function errorPage(){
 
-for(let i=0;i<80;i++){
+document.querySelectorAll('.page').forEach(p=>{
+p.classList.remove('active');
+});
 
-let div=document.createElement("div");
+document.getElementById('errorPage').classList.add('active');
 
-div.classList.add("float");
+}
 
-let emojis=["❤️","😘","🥹","🫂","🥰","💖","👑","💫"];
+function neverLeave(){
 
-div.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+document.querySelectorAll('.page').forEach(p=>{
+p.classList.remove('active');
+});
 
-div.style.left=Math.random()*100+"vw";
+document.getElementById('neverPage').classList.add('active');
 
-div.style.fontSize=(20+Math.random()*30)+"px";
+popup('WISHHHH 😁❤️');
 
-div.style.animationDuration=(5+Math.random()*5)+"s";
+}
+
+function leaveButton(){
+
+document.body.classList.add('shake');
+
+popup('HIMMAT KESE HUI YE BUTTON DABANE KI ☠️🔪😭');
+
+setTimeout(()=>{
+document.body.classList.remove('shake');
+},500);
+
+}
+
+function dontLeave(){
+
+document.querySelectorAll('.page').forEach(p=>{
+p.classList.remove('active');
+});
+
+document.getElementById('finalPage').classList.add('active');
+
+}
+
+function hugMe(){
+
+document.getElementById('hugText').innerHTML=
+'LOVE YOU SO MUCH MADAM JI ❤️<br>MISS YOU SO MUCH 😭🫂';
+
+for(let i=0;i<20;i++){
+popup('🫂');
+}
+
+}
+
+function kissMe(){
+
+document.getElementById('kissText').innerHTML=
+'UMMAAAAAAAAA 😘😘😘❤️';
+
+for(let i=0;i<25;i++){
+popup('😘❤️');
+}
+
+}
+
+function popup(text){
+
+let div=document.createElement('div');
+
+div.classList.add('popup');
+
+div.innerHTML=text;
+
+div.style.left=Math.random()*90+'%';
+
+div.style.top=Math.random()*90+'%';
 
 document.body.appendChild(div);
 
-}
+setTimeout(()=>{
+div.remove();
+},3000);
 
 }
+
+/* FLOATING EMOJIS */
+
+function createEmojis(){
+
+let emojis=['🥹','❤️','🫂','😘','😭','🙇‍♂️'];
+
+setInterval(()=>{
+
+let span=document.createElement('span');
+
+span.classList.add('float');
+
+span.innerHTML=
+emojis[Math.floor(Math.random()*emojis.length)];
+
+span.style.left=Math.random()*100+'vw';
+
+span.style.fontSize=
+(Math.random()*30+20)+'px';
+
+document.body.appendChild(span);
+
+setTimeout(()=>{
+span.remove();
+},10000);
+
+},300);
+
+}
+
+createEmojis();
+
+/* RAIN */
+
+function createRain(){
+
+setInterval(()=>{
+
+let rain=document.createElement('div');
+
+rain.classList.add('rain');
+
+rain.style.left=Math.random()*100+'vw';
+
+document.body.appendChild(rain);
+
+setTimeout(()=>{
+rain.remove();
+},1000);
+
+},100);
+
+}
+
+createRain();
 
 </script>
 
